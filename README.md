@@ -1,5 +1,7 @@
 # recut-site
 
+**Live site: <https://jelloshooter848.github.io/Recut-site/>**
+
 The public website for [ReCut](https://github.com/jelloshooter848/ReCut), a free, open-source video editor made
 for fan edits. It is a small static site (plain HTML, CSS and a little JavaScript) built by a zero-dependency Node
 script and served by GitHub Pages.
@@ -69,7 +71,8 @@ the patterns in `assets/js/site.js`.
 ## Turn on GitHub Pages
 
 1. Merge this branch into `main`.
-2. In the repository: **Settings › Pages › Build and deployment › Source: GitHub Actions**.
+2. In the repository: **Settings › Pages › Build and deployment › Source: GitHub Actions**. Not "Deploy from a
+   branch": that serves the raw repository (the README) instead of the built site.
 3. Re-run the latest **Deploy site to GitHub Pages** workflow on `main` (Actions tab › the run › Re-run all jobs), or
    push any commit. The site appears at `https://jelloshooter848.github.io/Recut-site/`.
 
