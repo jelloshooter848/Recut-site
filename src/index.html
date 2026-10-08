@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="en">
+<head>
+{{> head}}
+</head>
+<body>
+{{> header}}
+<main id="main">
+
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-text">
+      <h1>ReCut</h1>
+      <p class="pitch">The free video editor made for fan edits.</p>
+      <p class="lede">Recuts, trilogy merges, character-focused cuts and “what if this subplot were gone” experiments.
+        Find any line of dialogue across a whole franchise, build alternate cuts and compare them, with a real
+        multi-track editor underneath. Everything runs on your computer: no account, no cloud, no upload.</p>
+      <div class="actions">
+        <a class="button primary" href="#download">Download</a>
+        <a class="button secondary" href="{{text:repoUrl}}">View on GitHub</a>
+      </div>
+      <p class="meta">Version {{version}} · Windows, macOS and Linux · Open source (MIT)</p>
+    </div>
+    <figure class="hero-shot">
+      <img src="{{text:base}}assets/img/project.webp"
+           srcset="{{text:base}}assets/img/project-800.webp 800w, {{text:base}}assets/img/project.webp 1600w"
+           sizes="(min-width: 1140px) 1088px, calc(100vw - 32px)" width="1600" height="900" fetchpriority="high"
+           alt="The ReCut editing workspace: a Project panel with movie bins, a transcript search for the word “time” across two films, Source and Program monitors, an Inspector showing the original source timecode, and a timeline with subtitles, video and audio tracks.">
+    </figure>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="highlights-title">
+  <div class="wrap">
+    <h2 id="highlights-title">Made for working across a franchise</h2>
+    <p class="section-intro">Short clips recorded from the real app.</p>
+    <ul class="clips">
+      <li class="clip">
+        <video class="demo" muted loop playsinline controls preload="none" width="960" height="540"
+               poster="{{text:base}}assets/img/demo-transcript-search-poster.webp"
+               aria-label="Demo: searching a line of dialogue across two films">
+          <source src="{{text:base}}assets/video/demo-transcript-search.mp4" type="video/mp4">
+        </video>
+        <h3>Find any line, in any film or episode</h3>
+        <p>Search the dialogue of a whole franchise at once, click a hit, and the Source monitor opens at that line.</p>
+      </li>
+      <li class="clip">
+        <video class="demo" muted loop playsinline controls preload="none" width="960" height="540"
+               poster="{{text:base}}assets/img/demo-whisper-poster.webp"
+               aria-label="Demo: transcribing a film with Whisper">
+          <source src="{{text:base}}assets/video/demo-whisper.mp4" type="video/mp4">
+        </video>
+        <h3>No subtitles? Transcribe it</h3>
+        <p>Whisper, built in, turns the speech in any file into a searchable transcript, entirely on your computer.</p>
+      </li>
+      <li class="clip">
+        <video class="demo" muted loop playsinline controls preload="none" width="960" height="540"
+               poster="{{text:base}}assets/img/demo-ocr-poster.webp"
+               aria-label="Demo: reading picture subtitles with OCR">
+          <source src="{{text:base}}assets/video/demo-ocr.mp4" type="video/mp4">
+        </video>
+        <h3>Blu-ray and DVD subtitles become text</h3>
+        <p>Picture subtitles (PGS, VobSub, DVB) are read by built-in OCR, so disc rips are searchable too.</p>
+      </li>
+      <li class="clip">
+        <video class="demo" muted loop playsinline controls preload="none" width="960" height="540"
+               poster="{{text:base}}assets/img/demo-what-if-poster.webp"
+               aria-label="Demo: removing a plotline with What if">
+          <source src="{{text:base}}assets/video/demo-what-if.mp4" type="video/mp4">
+        </video>
+        <h3>“What if this subplot were gone?”</h3>
+        <p>Tag clips by character or plotline, switch one off, see the new runtime at once, and make it the real cut in
+          one step.</p>
+      </li>
+      <li class="clip">
+        <video class="demo" muted loop playsinline controls preload="none" width="960" height="540"
+               poster="{{text:base}}assets/img/demo-compare-poster.webp"
+               aria-label="Demo: comparing two alternate cuts">
+          <source src="{{text:base}}assets/video/demo-compare.mp4" type="video/mp4">
+        </video>
+        <h3>Compare alternate cuts</h3>
+        <p>Play two versions side by side on one clock and read what moved, what was trimmed, and what exists in only
+          one of them.</p>
+      </li>
+      <li class="clip">
+        <video class="demo" muted loop playsinline controls preload="none" width="960" height="540"
+               poster="{{text:base}}assets/img/demo-nest-keyframes-poster.webp"
+               aria-label="Demo: a compound clip with keyframed scale and position">
+          <source src="{{text:base}}assets/video/demo-nest-keyframes.mp4" type="video/mp4">
+        </video>
+        <h3>Compound clips and keyframes</h3>
+        <p>Fold a scene into one clip and edit it everywhere it is used; animate position, scale, opacity and volume.</p>
+      </li>
+    </ul>
+    <p class="credit">Footage: <cite>Tears of Steel</cite> and <cite>Sintel</cite> © Blender Foundation,
+      <a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p>
+  </div>
+</section>
+
+<section class="section alt" aria-labelledby="features-title">
+  <div class="wrap">
+    <h2 id="features-title">What fan editors get</h2>
+
+    <article class="feature">
+      <div class="feature-text">
+        <h3>Find any line across a franchise</h3>
+        <ul>
+          <li>On import, ReCut reads <code>S01E03</code>, <code>1x03</code> or “Season 1 Episode 3” and files episodes
+            into Series › Season bins. Movies go to their own bin, and you can set a franchise or collection.</li>
+          <li>Import SRT or WebVTT (sidecar files next to a video are picked up automatically), extract embedded text
+            subtitles, transcribe speech with Whisper, or read Blu-ray and DVD picture subtitles with OCR.</li>
+          <li>Search by project, series, season, franchise, collection, source or sequence, with regex and whole-word
+            options. Click a hit to open it in the Source monitor at that line.</li>
+          <li>Keep a scene library of reusable ranges with characters, location, arc, tags, rating and colour.</li>
+        </ul>
+      </div>
+      <img class="feature-shot" loading="lazy" decoding="async" width="1600" height="900"
+           src="{{text:base}}assets/img/transcript-800.webp"
+           srcset="{{text:base}}assets/img/transcript-800.webp 800w, {{text:base}}assets/img/transcript.webp 1600w"
+           sizes="(min-width: 900px) 520px, calc(100vw - 32px)"
+           alt="The Transcript panel listing search hits from two films, grouped by film, with timecodes.">
+    </article>
+
+    <article class="feature">
+      <div class="feature-text">
+        <h3>Build alternate cuts</h3>
+        <ul>
+          <li>Tag clips with characters, plotlines, locations and tags. The Storyline panel can highlight or solo
+            matching clips.</li>
+          <li><strong>What if</strong> switches matching clips off and estimates the new runtime. <strong>Remove
+            disabled</strong> turns the experiment into the real cut in one undo step, or <strong>Duplicate as
+            cut</strong> does it in a new version of the sequence.</li>
+          <li>Label acts and arcs as coloured storyline blocks, duplicate a sequence as a versioned alternate cut, or
+            take restorable snapshots.</li>
+          <li>Always know where a frame came from: the Inspector shows the original source timecode at the playhead,
+            and Match Frame jumps to the source.</li>
+        </ul>
+      </div>
+      <img class="feature-shot" loading="lazy" decoding="async" width="1600" height="900"
+           src="{{text:base}}assets/img/storyline-800.webp"
+           srcset="{{text:base}}assets/img/storyline-800.webp 800w, {{text:base}}assets/img/storyline.webp 1600w"
+           sizes="(min-width: 900px) 520px, calc(100vw - 32px)"
+           alt="The Storyline panel with coloured act blocks above the timeline and filters for characters and plotlines.">
+    </article>
+
+    <article class="feature">
+      <div class="feature-text">
+        <h3>Compare cuts</h3>
+        <ul>
+          <li>Play two sequences side by side on one clock.</li>
+          <li>Read a structural diff of every clip: same, moved, trimmed, only in A, only in B.</li>
+          <li>Pin continuity notes to clips, resolve them, and see them gathered across all your sequences.</li>
+        </ul>
+      </div>
+      <img class="feature-shot" loading="lazy" decoding="async" width="1600" height="900"
+           src="{{text:base}}assets/img/compare-800.webp"
+           srcset="{{text:base}}assets/img/compare-800.webp 800w, {{text:base}}assets/img/compare.webp 1600w"
+           sizes="(min-width: 900px) 520px, calc(100vw - 32px)"
+           alt="Compare view with two cuts in side-by-side monitors and a list of clips marked same, moved or trimmed.">
+    </article>
+
+    <article class="feature">
+      <div class="feature-text">
+        <h3>Deliver it your way</h3>
+        <ul>
+          <li><strong>MP4</strong> (H.264 or H.265) for sharing; <strong>MKV</strong> with any number of audio tracks
+            (for example 5.1 plus a stereo downmix, or a commentary track), soft subtitles and chapters.</li>
+          <li><strong>MOV</strong> with ProRes or DNxHR for grading and finishing elsewhere, and <strong>WAV</strong> or
+            <strong>FLAC</strong> audio only, as the mix or one file per track.</li>
+          <li>5.1 sources export as 5.1 AC-3 or a stereo downmix, and <strong>Extract Centre Channel</strong> puts the
+            centre (mostly dialogue) on its own clip.</li>
+          <li>Subtitles follow their clips through every edit and export as SRT or VTT, or burned in. A Checks list
+            warns before you export, and exports are frame-exact.</li>
+        </ul>
+      </div>
+      <img class="feature-shot" loading="lazy" decoding="async" width="1600" height="900"
+           src="{{text:base}}assets/img/export-formats-800.webp"
+           srcset="{{text:base}}assets/img/export-formats-800.webp 800w, {{text:base}}assets/img/export-formats.webp 1600w"
+           sizes="(min-width: 900px) 520px, calc(100vw - 32px)"
+           alt="The Export dialog's format list: MP4, MKV, MOV with ProRes or DNxHR, WAV and FLAC.">
+    </article>
+
+    <article class="feature feature-solo">
+      <div class="feature-text">
+        <h3>Hand off to Resolve, Premiere or Final Cut Pro
+          <span class="badge">{{#if interchangeReleased}}New in {{interchangeVersion}}{{else}}Coming in {{interchangeVersion}}{{/if}}</span></h3>
+        <ul>
+          <li><strong>File › Export Timeline…</strong> writes your sequence as FCPXML, OpenTimelineIO or a CMX3600 EDL,
+            linked to your original media files, for DaVinci Resolve, Final Cut Pro, Premiere Pro and other editors
+            that read these formats.</li>
+          <li>Before saving, a report lists anything the other format cannot hold, so nothing is dropped silently.</li>
+          <li>Export only for now: importing timelines is planned after 1.0.</li>
+        </ul>
+      </div>
+    </article>
+
+    <p class="more"><a class="button secondary" href="{{text:base}}features.html">All features and screenshots</a></p>
+  </div>
+</section>
+
+<section class="section" id="download" aria-labelledby="download-title" data-repo="{{text:repo}}"{{#if liveReleaseLookup}} data-live-lookup{{/if}}>
+  <div class="wrap">
+    <h2 id="download-title">Download ReCut</h2>
+    <p class="section-intro">Latest release: <span data-release-version>{{version}}</span>,
+      <span data-release-date>{{releaseDate}}</span>. Free, with FFmpeg bundled, so there is nothing else to
+      install.</p>
+    <div class="downloads">
+      <article class="os" data-os="windows">
+        <h3>Windows</h3>
+        <a class="button primary" href="{{text:releasesUrl}}" data-asset="win-setup">Download installer</a>
+        <a class="button secondary small" href="{{text:releasesUrl}}" data-asset="win-portable">Portable exe</a>
+        <p class="asset-name" data-asset-name="win-setup">ReCut-Setup-&lt;version&gt;.exe</p>
+        <ul class="notes">
+          <li>64-bit (x64). Installs for your user only, no admin rights needed. The portable exe runs without
+            installing.</li>
+          {{#unless windowsSigned}}<li>The app is not code-signed yet, so Windows SmartScreen may say “Windows protected
+            your PC”. Choose <strong>More info › Run anyway</strong>.</li>{{/unless}}
+        </ul>
+      </article>
+      <article class="os" data-os="mac">
+        <h3>macOS</h3>
+        <a class="button primary" href="{{text:releasesUrl}}" data-asset="mac-arm64">Apple Silicon (M1 or newer)</a>
+        <a class="button secondary small" href="{{text:releasesUrl}}" data-asset="mac-x64">Intel Mac</a>
+        <p class="asset-name" data-asset-name="mac-arm64">ReCut-&lt;version&gt;-macos-arm64.dmg</p>
+        <ul class="notes">
+          <li>macOS 12 Monterey or newer. Not sure which? Apple menu › <strong>About This Mac</strong>: “Chip: Apple M…”
+            means Apple Silicon, “Processor: Intel” means Intel.</li>
+          <li>Open the dmg and drag ReCut to Applications. The dmgs are signed and notarized by Apple, so ReCut opens
+            normally.</li>
+          <li>On Intel Macs speech-to-text runs on the CPU only, so it is slower. Intel support may be retired after
+            1.0.</li>
+        </ul>
+      </article>
+      <article class="os" data-os="linux">
+        <h3>Linux</h3>
+        <a class="button primary" href="{{text:releasesUrl}}" data-asset="linux-appimage">Download AppImage</a>
+        <p class="asset-name" data-asset-name="linux-appimage">ReCut-&lt;version&gt;-linux-x86_64.AppImage</p>
+        <ul class="notes">
+          <li>x86-64 only. Make it executable and run it:
+            <code class="block">chmod +x ReCut-*.AppImage<br>./ReCut-*.AppImage</code></li>
+          <li>If it says FUSE is missing, install <code>libfuse2</code> (<code>libfuse2t64</code> on Ubuntu 24.04 and
+            later, <code>fuse-libs</code> on Fedora) or run it with <code>--appimage-extract-and-run</code>.</li>
+          <li>Needs glibc 2.28 or newer (Debian 10, Ubuntu 18.10, RHEL 8 or later).</li>
+        </ul>
+      </article>
+    </div>
+    <p class="after-downloads">Release notes and every file are on the
+      <a href="{{text:releasesUrl}}">releases page</a>. To build from source, see the
+      <a href="{{text:docsUrl}}/INSTALL.md">install guide</a>.</p>
+  </div>
+</section>
+
+<section class="section alt" aria-labelledby="demo-title">
+  <div class="wrap narrow">
+    <h2 id="demo-title">See a fan edit come together</h2>
+    {{#if demoVideoId}}
+    <div class="video-facade" data-youtube-id="{{text:demoVideoId}}">
+      <img src="{{text:base}}assets/img/project-800.webp" width="800" height="450" loading="lazy" alt="">
+      <button type="button" class="play" aria-label="Play the ReCut demo video (loads from YouTube)">
+        <span aria-hidden="true">▶</span> Play demo
+      </button>
+      <p class="facade-note">Playing loads the video from youtube-nocookie.com.</p>
+    </div>
+    {{else}}
+    <div class="video-facade is-placeholder">
+      <img src="{{text:base}}assets/img/project-800.webp" width="800" height="450" loading="lazy" alt="">
+      <p class="soon"><span class="todo">Demo video coming soon</span></p>
+    </div>
+    {{/if}}
+  </div>
+</section>
+
+<section class="section" aria-labelledby="involved-title">
+  <div class="wrap">
+    <h2 id="involved-title">Get involved</h2>
+    <div class="cards">
+      <article class="card">
+        <h3>Contribute</h3>
+        <p>ReCut is developed in the open on GitHub under the MIT licence. Code, docs and testing on real projects all
+          help.</p>
+        <ul class="links">
+          <li><a href="{{text:repoUrl}}">The repository</a></li>
+          {{#if contributingUrl}}<li><a href="{{text:contributingUrl}}">Contributing guide</a></li>{{else}}<li><span class="todo">Contributing guide coming soon</span>; meanwhile see the
+            <a href="{{text:docsUrl}}/DEVELOPMENT.md">development notes</a></li>{{/if}}
+          <li><a href="{{text:issuesUrl}}?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22">Good first issues</a></li>
+        </ul>
+      </article>
+      <article class="card">
+        <h3>Report a bug</h3>
+        <p>Found something broken? Open an issue with your ReCut version, your OS and the steps to reproduce it.
+          Check the <a href="{{text:docsUrl}}/LIMITATIONS.md">known limitations</a> first.</p>
+        <ul class="links">
+          <li><a href="{{text:issuesUrl}}/new">Open an issue</a></li>
+        </ul>
+      </article>
+      <article class="card">
+        <h3>Discuss</h3>
+        {{#if discussionsUrl}}<p>Ask questions, share your edits' workflows and suggest features.</p>
+        <ul class="links"><li><a href="{{text:discussionsUrl}}">Join the discussion</a></li></ul>
+        {{else}}<p><span class="todo">A place for questions and ideas opens at launch.</span> Until then, open an
+          issue on GitHub.</p>{{/if}}
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section alt" id="faq" aria-labelledby="faq-title">
+  <div class="wrap narrow">
+    <h2 id="faq-title">Questions</h2>
+    <details>
+      <summary>Is ReCut free?</summary>
+      <p>Yes. ReCut is free and open source. There is no account and no subscription, and nothing is uploaded:
+        everything runs on your computer.</p>
+    </details>
+    <details>
+      <summary>Which licence is it under?</summary>
+      <p>ReCut is licensed under the <a href="{{text:repoUrl}}/blob/main/LICENSE">MIT License</a>. The release builds
+        bundle FFmpeg, which ReCut runs as a separate program and which is licensed under the GPL version 3 or later;
+        whisper.cpp, Tesseract, Electron and a few other components keep their own licences. See the
+        <a href="{{text:repoUrl}}/blob/main/THIRD_PARTY_NOTICES.md">third-party notices</a>.</p>
+    </details>
+    <details>
+      <summary>What is a fan edit?</summary>
+      <p>A new cut of an existing film or series made by a fan: a tighter version, a trilogy merged into one film, a
+        cut that follows a single character, or the story with a subplot taken out. ReCut is built around that kind of
+        work: finding material across many films or episodes, trying alternate versions and comparing them.</p>
+    </details>
+    <details>
+      <summary>Is it legal to use ReCut?</summary>
+      <p>ReCut is an editing tool. It edits media files you supply. It does not download, rip or stream content, and
+        it does not decrypt or get around DRM or any other copy protection. You are responsible for having the rights
+        to the material you edit and for how you share the result. Copyright law differs from country to country, so
+        respect copyright and the laws where you live. This is not legal advice.</p>
+    </details>
+    <details>
+      <summary>What do I need to run it?</summary>
+      <ul>
+        <li><strong>Windows:</strong> 64-bit (x64).</li>
+        <li><strong>macOS:</strong> macOS 12 Monterey or newer, on Apple Silicon or Intel.</li>
+        <li><strong>Linux:</strong> x86-64 with glibc 2.28 or newer, and the FUSE 2 library (or run the AppImage with
+          <code>--appimage-extract-and-run</code>).</li>
+      </ul>
+      <p>FFmpeg, the speech-to-text engine and the OCR engine are bundled. Speech-to-text runs on the CPU (with Metal
+        on Apple Silicon), and the larger models are slow. ReCut works offline; it only goes online when you install a
+        Whisper model or OCR language, or if you turn on the update check.</p>
+    </details>
+    <details>
+      <summary>What can't it do yet?</summary>
+      <p>Among other things: there is no colour grading, no titles or generators, three transitions (Cross Dissolve,
+        Dip to Black, Audio Crossfade), no audio mixer or panning, and no automatic updates.
+        {{#unless interchangeReleased}}Timeline export to other editors arrives in {{interchangeVersion}}.{{/unless}}
+        The full, honest list is in <a href="{{text:docsUrl}}/LIMITATIONS.md">LIMITATIONS</a>, and what is planned
+        is in the <a href="{{text:docsUrl}}/ROADMAP.md">roadmap</a>.</p>
+    </details>
+  </div>
+</section>
+
+</main>
+{{> footer}}
+</body>
+</html>
