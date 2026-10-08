@@ -15,7 +15,7 @@
 
   "demoVideoId": "",
   "demoVideoFile": "assets/video/tour.mp4",
-  "discussionsUrl": "",
+  "discussionsUrl": "https://github.com/jelloshooter848/ReCut/discussions",
   "contributingUrl": "https://github.com/jelloshooter848/ReCut/blob/main/CONTRIBUTING.md",
 
   "liveReleaseLookup": true
