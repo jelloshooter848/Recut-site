@@ -1,0 +1,29 @@
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div>
+      <p class="footer-brand"><img src="{{text:base}}assets/icons/icon-48.png" width="24" height="24" alt=""> ReCut</p>
+      <p>A free, open-source video editor made for fan edits. ReCut is released under the
+        <a href="{{text:repoUrl}}/blob/main/LICENSE">MIT License</a>.</p>
+      <p><a href="{{text:repoUrl}}">ReCut on GitHub</a> · <a href="{{text:repoUrl}}/blob/main/CHANGELOG.md">Changelog</a> ·
+        <a href="{{text:docsUrl}}/USER-GUIDE.md">User guide</a></p>
+    </div>
+    <div>
+      <h2 class="footer-heading">Credits</h2>
+      <p>Screenshots and clips show footage from <cite>Tears of Steel</cite> and <cite>Sintel</cite>
+        © Blender Foundation (<a href="https://mango.blender.org">mango.blender.org</a>,
+        <a href="https://durian.blender.org">durian.blender.org</a>),
+        <a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>. They are not shipped with ReCut.</p>
+      <p>ReCut uses <a href="https://ffmpeg.org">FFmpeg</a> for all media work; the release builds bundle it under the
+        GPL version 3 or later. It also ships whisper.cpp, Tesseract and Electron under their own licences
+        (<a href="{{text:repoUrl}}/blob/main/THIRD_PARTY_NOTICES.md">third-party notices</a>).
+        FFmpeg is a trademark of Fabrice Bellard.</p>
+    </div>
+    <div>
+      <h2 class="footer-heading">This website</h2>
+      <p>No cookies, analytics or trackers. Text uses your system's fonts and all media is served from this site.
+        {{#if liveReleaseLookup}}The download buttons ask GitHub's API which files the latest release has.{{/if}}
+        {{#if demoVideoId}}The demo video loads from YouTube (privacy-enhanced mode) only when you click it.{{/if}}
+        <a href="https://github.com/jelloshooter848/recut-site">Site source</a> (MIT; media keeps its own licence).</p>
+    </div>
+  </div>
+</footer>

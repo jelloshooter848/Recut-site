@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+<head>
+{{> head}}
+</head>
+<body>
+{{> header}}
+<main id="main">
+
+<section class="page-head">
+  <div class="wrap">
+    <h1>Features</h1>
+    <p class="lede">ReCut works like a familiar desktop editor: Source and Program monitors, a multi-track timeline and
+      three-point editing. On top of that it adds tools for working across a whole franchise. This page describes
+      ReCut {{featuresAsOf}}; the <a href="{{text:repoUrl}}/blob/main/CHANGELOG.md">changelog</a> lists what changed
+      since.</p>
+    <nav class="toc" aria-label="On this page">
+      <ul>
+        <li><a href="#editing">Editing core</a></li>
+        <li><a href="#fan-edit">Fan-edit tools</a></li>
+        <li><a href="#media">Media and audio</a></li>
+        <li><a href="#export">Export</a></li>
+        <li><a href="#interchange">Interchange</a></li>
+        <li><a href="#privacy">Offline by design</a></li>
+        <li><a href="#screenshots">Screenshots</a></li>
+      </ul>
+    </nav>
+  </div>
+</section>
+
+<section class="section" id="editing" aria-labelledby="editing-title">
+  <div class="wrap prose">
+    <h2 id="editing-title">Editing core</h2>
+    <ul>
+      <li>Source and Program monitors with JKL shuttle (up to 8x), frame stepping, In/Out marks and typed timecode
+        entry.</li>
+      <li>Three-point <strong>Insert</strong> and <strong>Overwrite</strong> that honour sequence and source In/Out.
+        On the first edit into an empty sequence, ReCut offers to match the sequence to the clip.</li>
+      <li>A multi-track timeline (video and audio tracks, linked audio and video, source patching, lock, mute, solo),
+        snapping, Lift, Extract, Ripple Delete, Add Edit, Ripple Trim to playhead, nudge, copy and paste.</li>
+      <li>Selection, Track Select, Ripple, Rolling, Slip, Slide, Razor and Hand tools. Every edit is frame-exact.</li>
+      <li>Out-of-sync badges on linked clips, a stereo peak meter on the Program monitor, and a History panel with 200
+        undo steps.</li>
+      <li>Cross Dissolve, Dip to Black and Audio Crossfade transitions.</li>
+      <li>Clip speed from 1 % to 10 000 %, position, scale, rotation, opacity and crop, clip gain, level and fades, and
+        track volume.</li>
+      <li><strong>Keyframes</strong> for position, scale, opacity and volume, Linear or Ease, shown as diamonds on the
+        timeline. They stay with the picture through trims, splits, rolls and slides, and the export matches the
+        preview.</li>
+      <li><strong>Nested sequences and compound clips.</strong> Make Compound Clip folds a selection into its own
+        sequence, and edits to it show everywhere it is used. Drag a sequence onto the timeline to nest it; Break Apart
+        reverses it.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section alt" id="fan-edit" aria-labelledby="fan-title">
+  <div class="wrap prose">
+    <h2 id="fan-title">Fan-edit tools</h2>
+    <ul>
+      <li><strong>Series, season and franchise organisation.</strong> ReCut reads <code>S01E03</code>,
+        <code>1x03</code> or “Season 1 Episode 3” on import and routes files into TV › Series › Season bins. Movies go
+        to the Movies bin, and you can set a collection or franchise.</li>
+      <li><strong>Scene detection</strong> with an adjustable threshold, and merge, split and tag of detected scenes.</li>
+      <li><strong>Transcript search across a franchise.</strong> Import SRT or WebVTT (sidecars next to a video are
+        picked up automatically) or extract embedded text subtitles. Search by project, series, season, franchise,
+        collection, source or sequence, with regex and whole-word options, and click a hit to load it in the Source
+        monitor at that line.</li>
+      <li><strong>Speech-to-text (Whisper).</strong> Media without subtitles gets a searchable transcript from the
+        built-in whisper.cpp engine, entirely offline. Models (tiny to large-v3-turbo) are downloaded once, when you
+        choose one, and checked against a fixed checksum.</li>
+      <li><strong>OCR for Blu-ray and DVD subtitles.</strong> Picture subtitles (PGS, VobSub, DVB, XSUB) are read into
+        searchable text tracks by a built-in OCR engine (Tesseract). Languages are installed from inside ReCut; OCR
+        then runs offline.</li>
+      <li><strong>Scene library.</strong> Reusable source ranges with characters, location, arc, tags, rating and
+        colour. Filter, sort and group them, and drag them to the timeline.</li>
+      <li><strong>Story tagging and what-if experiments.</strong> Tag clips with characters, plotlines, locations and
+        tags. The Storyline panel can highlight or solo matching clips, and its <strong>What if</strong> buttons switch
+        matching or non-matching clips off and estimate the runtime. <strong>Remove disabled</strong> turns the
+        experiment into the real cut (ripple, one undo step), and <strong>Duplicate as cut</strong> does the same in a
+        new version of the sequence.</li>
+      <li><strong>Storyline blocks.</strong> Label acts and arcs as coloured blocks above the cut.</li>
+      <li><strong>Alternate cuts and snapshots.</strong> Duplicate a sequence as a versioned alternate cut, or take
+        restorable snapshots.</li>
+      <li><strong>Compare cuts.</strong> Play two sequences side by side on one clock and read a structural diff (same,
+        moved, trimmed, only in A, only in B).</li>
+      <li><strong>Continuity notes</strong> pinned to clips, which can be resolved, are gathered across sequences and
+        can be copied as text.</li>
+      <li><strong>Original source timecode.</strong> The Inspector shows the source file's timecode at the playhead,
+        the Program timecode can switch from sequence to source, and Match Frame jumps to the source.</li>
+      <li><strong>Subtitles that follow clips.</strong> Cues carried in from the source stay attached to their clip
+        through moves, trims, ripples and speed changes.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section" id="media" aria-labelledby="media-title">
+  <div class="wrap prose">
+    <h2 id="media-title">Media and audio</h2>
+    <ul>
+      <li><strong>Proxies.</strong> Media the preview cannot decode (HEVC, AC-3, DTS, MPEG-TS and more) gets a 540p
+        H.264 proxy automatically, carrying every audio stream. Proxies are only for preview: export always reads the
+        originals.</li>
+      <li><strong>Stills</strong> in PNG, JPEG, WebP, GIF and BMP are drawn directly; other formats FFmpeg decodes
+        (TIFF, TGA, EXR, PSD, JPEG XL, AVIF, HEIC and more) are previewed from a PNG made on import. See
+        <a href="{{text:docsUrl}}/FORMATS.md">FORMATS</a> for the full list.</li>
+      <li><strong>Relink</strong> with offline detection, a folder search that matches by name and size, and per-file
+        Locate.</li>
+      <li><strong>5.1 audio.</strong> Export 5.1 sources as 5.1 AC-3 or a stereo downmix. Per clip, play one source
+        channel as mono or a downmix with your own centre and surround levels, and <strong>Extract Centre Channel
+        (Dialogue)</strong> puts the centre channel on its own linked clip.</li>
+      <li><strong>Collect Project</strong> copies the project and the media it uses into one folder, verified, so it
+        moves to another drive or machine intact.</li>
+      <li>Autosave, crash recovery, atomic saves with a backup copy, and a JSON project format. Every release opens
+        projects saved by earlier releases from 0.3.0 on.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section alt" id="export" aria-labelledby="export-title">
+  <div class="wrap prose">
+    <h2 id="export-title">Export</h2>
+    <ul>
+      <li><strong>MP4</strong> with H.264 or H.265.</li>
+      <li><strong>MKV</strong> with any number of audio tracks (for example 5.1 plus a stereo downmix, or a commentary
+        track), soft subtitle tracks and chapters.</li>
+      <li><strong>MOV</strong> with ProRes or DNxHR, for grading and finishing elsewhere.</li>
+      <li><strong>WAV</strong> and <strong>FLAC</strong> audio only, as the mix or one file per track.</li>
+      <li>Presets for each, CRF or target bitrate, In to Out range, an FFmpeg command preview, a Checks list that warns
+        before you export, and chunked rendering for very long timelines. Exports are frame-exact.</li>
+      <li>Subtitles export as SRT or VTT, or are burned in.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section" id="interchange" aria-labelledby="interchange-title">
+  <div class="wrap prose">
+    <h2 id="interchange-title">Interchange
+      <span class="badge">{{#if interchangeReleased}}New in {{interchangeVersion}}{{else}}Coming in {{interchangeVersion}}{{/if}}</span></h2>
+    <ul>
+      <li><strong>File › Export Timeline…</strong> writes a sequence as FCPXML, OpenTimelineIO or a CMX3600 EDL for
+        DaVinci Resolve, Final Cut Pro, Premiere Pro and other editors that read these formats.</li>
+      <li>The timeline links to your original media files; it carries no media, so the other editor needs the same
+        files (or relinks them).</li>
+      <li>What the other format cannot represent (some keyframes, effects, nested sequences, subtitles) is approximated
+        or left out, and the dialog's report lists it before saving.</li>
+      <li>Export only: importing FCPXML, OTIO or EDL is planned after 1.0. There is no AAF or Premiere XML.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section alt" id="privacy" aria-labelledby="privacy-title">
+  <div class="wrap prose">
+    <h2 id="privacy-title">Offline by design</h2>
+    <p>ReCut works offline, with no account. It uses the network only for three things, each of which you start or
+      allow yourself:</p>
+    <ul>
+      <li>installing an OCR language (one file, checked against a fixed checksum);</li>
+      <li>installing a Whisper model (one file, checked the same way);</li>
+      <li>the update check, only if you agree to it or choose Help › Check for Updates. It tells you a new release
+        exists; it never downloads or installs anything by itself.</li>
+    </ul>
+    <p>Both downloads also have an <strong>Install from file…</strong> option for machines without network access.</p>
+  </div>
+</section>
+
+<section class="section" id="screenshots" aria-labelledby="shots-title">
+  <div class="wrap">
+    <h2 id="shots-title">Screenshots</h2>
+    <p class="section-intro">Select a screenshot to open it at full size.</p>
+    <ul class="shots">
+      <li><a href="{{text:base}}assets/img/project-panel.webp"><img loading="lazy" decoding="async" width="800" height="450" src="{{text:base}}assets/img/project-panel-800.webp" alt=""><span>Project panel: bins, series, scenes</span></a></li>
+      <li><a href="{{text:base}}assets/img/source.webp"><img loading="lazy" decoding="async" width="800" height="450" src="{{text:base}}assets/img/source-800.webp" alt=""><span>Source monitor with subtitles</span></a></li>
+      <li><a href="{{text:base}}assets/img/program.webp"><img loading="lazy" decoding="async" width="800" height="450" src="{{text:base}}assets/img/program-800.webp" alt=""><span>Program monitor</span></a></li>
+      <li><a href="{{text:base}}assets/img/timeline.webp"><img loading="lazy" decoding="async" width="800" height="450" src="{{text:base}}assets/img/timeline-800.webp" alt=""><span>Timeline</span></a></li>
+      <li><a href="{{text:base}}assets/img/inspector.webp"><img loading="lazy" decoding="async" width="800" height="450" src="{{text:base}}assets/img/inspector-800.webp" alt=""><span>Inspector with original source timecode</span></a></li>
+      <li><a href="{{text:base}}assets/img/keyframes.webp"><img loading="lazy" decoding="async" width="800" height="450" src="{{text:base}}assets/img/keyframes-800.webp" alt=""><span>Keyframes in the Inspector and on the timeline</span></a></li>
+      <li><a href="{{text:base}}assets/img/nested.webp"><img loading="lazy" decoding="async" width="800" height="450" src="{{text:base}}assets/img/nested-800.webp" alt=""><span>A compound clip (nested sequence)</span></a></li>
+      <li><a href="{{text:base}}assets/img/channels.webp"><img loading="lazy" decoding="async" width="800" height="450" src="{{text:base}}assets/img/channels-800.webp" alt=""><span>Centre channel extracted from a 5.1 source</span></a></li>
+      <li><a href="{{text:base}}assets/img/transcript.webp"><img loading="lazy" decoding="async" width="800" height="450" src="{{text:base}}assets/img/transcript-800.webp" alt=""><span>Transcript search across a franchise</span></a></li>
+      <li><a href="{{text:base}}assets/img/scenes.webp"><img loading="lazy" decoding="async" width="800" height="450" src="{{text:base}}assets/img/scenes-800.webp" alt=""><span>Scene library</span></a></li>
+      <li><a href="{{text:base}}assets/img/storyline.webp"><img loading="lazy" decoding="async" width="800" height="450" src="{{text:base}}assets/img/storyline-800.webp" alt=""><span>Storyline blocks and tag filters</span></a></li>
+      <li><a href="{{text:base}}assets/img/compare.webp"><img loading="lazy" decoding="async" width="800" height="450" src="{{text:base}}assets/img/compare-800.webp" alt=""><span>Compare cuts with structural diff</span></a></li>
+      <li><a href="{{text:base}}assets/img/continuity.webp"><img loading="lazy" decoding="async" width="800" height="450" src="{{text:base}}assets/img/continuity-800.webp" alt=""><span>Continuity notes</span></a></li>
+      <li><a href="{{text:base}}assets/img/jobs.webp"><img loading="lazy" decoding="async" width="800" height="450" src="{{text:base}}assets/img/jobs-800.webp" alt=""><span>Jobs and proxies</span></a></li>
+      <li><a href="{{text:base}}assets/img/export.webp"><img loading="lazy" decoding="async" width="800" height="450" src="{{text:base}}assets/img/export-800.webp" alt=""><span>Export dialog</span></a></li>
+      <li><a href="{{text:base}}assets/img/export-formats.webp"><img loading="lazy" decoding="async" width="800" height="450" src="{{text:base}}assets/img/export-formats-800.webp" alt=""><span>ProRes, DNxHR, MKV and audio-only formats</span></a></li>
+      <li><a href="{{text:base}}assets/img/collect.webp"><img loading="lazy" decoding="async" width="800" height="450" src="{{text:base}}assets/img/collect-800.webp" alt=""><span>Collect Project</span></a></li>
+      <li><a href="{{text:base}}assets/img/program-maximized.webp"><img loading="lazy" decoding="async" width="800" height="450" src="{{text:base}}assets/img/program-maximized-800.webp" alt=""><span>Program monitor maximized</span></a></li>
+      <li><a href="{{text:base}}assets/img/program-still.webp"><img loading="lazy" decoding="async" width="800" height="450" src="{{text:base}}assets/img/program-still-800.webp" alt=""><span>A still image on V2 over video</span></a></li>
+      <li><a href="{{text:base}}assets/img/shell.webp"><img loading="lazy" decoding="async" width="800" height="450" src="{{text:base}}assets/img/shell-800.webp" alt=""><span>The empty Editing workspace</span></a></li>
+    </ul>
+    <p class="credit">Footage: <cite>Tears of Steel</cite> and <cite>Sintel</cite> © Blender Foundation,
+      <a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p>
+    <p class="more"><a class="button primary" href="{{text:base}}#download">Download ReCut</a>
+      <a class="button secondary" href="{{text:docsUrl}}/USER-GUIDE.md">Read the user guide</a></p>
+  </div>
+</section>
+
+</main>
+{{> footer}}
+</body>
+</html>
