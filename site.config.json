@@ -1,7 +1,7 @@
 {
   "_comment": "The one place to update at launch. Any value starting with 'TODO:' is a placeholder: the build prints it and the page shows it with a dashed outline. See README.md > Launch checklist.",
 
-  "siteUrl": "https://jelloshooter848.github.io/recut-site",
+  "siteUrl": "https://jelloshooter848.github.io/Recut-site",
   "repo": "jelloshooter848/ReCut",
 
   "version": "TODO: 1.0.0",

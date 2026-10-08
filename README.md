@@ -33,7 +33,7 @@ node tools/build.mjs --local     # builds into _site/ with base path "/"
 npx http-server _site -p 8080    # or: cd _site && python3 -m http.server 8080
 ```
 
-Open <http://localhost:8080/>. Without `--local`, links use the path from `siteUrl` (for example `/recut-site/`),
+Open <http://localhost:8080/>. Without `--local`, links use the path from `siteUrl` (for example `/Recut-site/`),
 which is what Pages serves.
 
 Template syntax is described at the top of `tools/build.mjs`: `{{key}}` inserts a value from `site.config.json`,
@@ -70,7 +70,7 @@ the patterns in `assets/js/site.js`.
 1. Merge this branch into `main`.
 2. In the repository: **Settings › Pages › Build and deployment › Source: GitHub Actions**.
 3. Re-run the latest **Deploy site to GitHub Pages** workflow on `main` (Actions tab › the run › Re-run all jobs), or
-   push any commit. The site appears at `https://jelloshooter848.github.io/recut-site/`.
+   push any commit. The site appears at `https://jelloshooter848.github.io/Recut-site/`.
 
 Until step 2, the workflow only builds the site (a check that it still builds) and skips the deploy job.
 
