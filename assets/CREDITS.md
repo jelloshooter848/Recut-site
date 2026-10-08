@@ -9,6 +9,7 @@ from files in the ReCut repository, [jelloshooter848/ReCut](https://github.com/j
 | `img/<name>.webp`, `img/<name>-800.webp` | `docs/screenshots/<name>.png` | WebP, quality 80, 1600 and 800 px wide |
 | `video/demo-*.mp4` | `docs/screenshots/demo-*.gif` | silent H.264 MP4, 960 × 540, 15 fps |
 | `img/demo-*-poster.webp` | `docs/screenshots/demo-*.gif` | the frame at 6 s, WebP |
+| `video/tour.mp4`, `img/tour-poster.webp` | the six `docs/screenshots/demo-*.gif` | 88 s silent tour with title cards (`tools/make-tour.sh`; card text in Inter, rendered into the video) |
 | `og-image.png` | `docs/screenshots/project.png` | social preview card, 1200 × 630 (`tools/make-og.py`) |
 | `icons/icon-*.png`, `../favicon.ico` | `build/icon.png` (the app icon) | resized |
 

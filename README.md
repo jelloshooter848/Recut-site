@@ -9,8 +9,8 @@ script and served by GitHub Pages.
 - `404.html`, `sitemap.xml`, `robots.txt`
 
 No analytics, cookies, trackers, third-party fonts or third-party scripts. A Content Security Policy only allows this
-site's own files, plus `api.github.com` (latest-release lookup) and `youtube-nocookie.com` (the demo video, loaded only
-on click).
+site's own files, plus `api.github.com` (latest-release lookup) and `youtube-nocookie.com` (only used if a YouTube demo id is set,
+and then only after a click). The demo tour is self-hosted.
 
 ## Layout
 
@@ -21,7 +21,7 @@ on click).
 | `assets/css/site.css`, `assets/js/site.js` | Styles (light and dark) and progressive enhancement |
 | `assets/img`, `assets/video`, `assets/icons` | Media made from ReCut's own screenshots; see [assets/CREDITS.md](assets/CREDITS.md) |
 | `tools/build.mjs` | Builds `src/` into `_site/` |
-| `tools/build-assets.sh`, `tools/make-og.py` | Regenerate the media from a ReCut checkout (needs ffmpeg and Pillow) |
+| `tools/build-assets.sh`, `tools/make-og.py`, `tools/make-tour.sh` | Regenerate the media and the demo tour from a ReCut checkout (needs ffmpeg and Pillow) |
 | `.github/workflows/pages.yml` | Builds on every push and PR; deploys `main` to Pages once Pages is enabled |
 
 ## Preview locally
@@ -50,8 +50,9 @@ page shows them with a dashed outline.
 | `releaseDate` | the release date as it should read, for example `"14 November 2026"` |
 | `windowsSigned` | `true` once the Windows builds are code-signed (hides the SmartScreen note) |
 | `interchangeReleased` | `true` once 0.9.0 is out (the badge changes from "Coming in 0.9.0" to "New in 0.9.0") |
-| `demoVideoId` | the YouTube video id of the demo (empty shows a "coming soon" placeholder) |
-| `discussionsUrl` | GitHub Discussions or community link (empty shows a placeholder) |
+| `demoVideoId` | a YouTube video id, if a narrated demo is made later (it replaces the self-hosted tour, behind a click-to-load facade) |
+| `demoVideoFile` | the self-hosted demo, `assets/video/tour.mp4` (made by `tools/make-tour.sh`); empty both to show a placeholder |
+| `discussionsUrl` | set to ReCut's GitHub Discussions; **Discussions must be enabled in the ReCut repo** before launch, or the link 404s |
 | `contributingUrl` | link to CONTRIBUTING.md once it exists (empty shows a placeholder) |
 | `siteUrl` | the final address, if it is a custom domain (see below) |
 | `featuresAsOf` | the ReCut version the feature text was last checked against |
@@ -83,6 +84,7 @@ links, social card URL, sitemap and robots.txt follow.
 ```bash
 git clone --depth 1 https://github.com/jelloshooter848/ReCut /tmp/ReCut
 tools/build-assets.sh /tmp/ReCut
+tools/make-tour.sh /tmp/ReCut
 ```
 
 Only ever use ReCut's own screenshots and clips, which are made from Blender Foundation open movies (CC BY 3.0).

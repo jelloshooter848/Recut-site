@@ -252,8 +252,16 @@
 
 <section class="section alt" aria-labelledby="demo-title">
   <div class="wrap narrow">
-    <h2 id="demo-title">See a fan edit come together</h2>
-    {{#if demoVideoId}}
+    <h2 id="demo-title">A quick tour</h2>
+    {{#if demoLocal}}
+    <p class="section-intro">90 seconds, no sound: the six highlights above, recorded in ReCut.</p>
+    <video class="tour" controls preload="none" playsinline width="960" height="540"
+           poster="{{text:base}}assets/img/tour-poster.webp"
+           aria-label="ReCut tour: transcript search, Whisper, OCR, What if, Compare, and compound clips with keyframes">
+      <source src="{{text:base}}{{text:demoVideoFile}}" type="video/mp4">
+    </video>
+    {{/if}}
+    {{#if demoYoutube}}
     <div class="video-facade" data-youtube-id="{{text:demoVideoId}}">
       <img src="{{text:base}}assets/img/project-800.webp" width="800" height="450" loading="lazy" alt="">
       <button type="button" class="play" aria-label="Play the ReCut demo video (loads from YouTube)">
@@ -261,7 +269,8 @@
       </button>
       <p class="facade-note">Playing loads the video from youtube-nocookie.com.</p>
     </div>
-    {{else}}
+    {{/if}}
+    {{#if demoNone}}
     <div class="video-facade is-placeholder">
       <img src="{{text:base}}assets/img/project-800.webp" width="800" height="450" loading="lazy" alt="">
       <p class="soon"><span class="todo">Demo video coming soon</span></p>
