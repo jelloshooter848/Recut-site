@@ -83,6 +83,10 @@ for (const page of pages) {
     robots: page.noindex ? 'noindex' : 'index, follow',
     ogImage: `${siteUrl}/assets/og-image.png`,
   };
+  // The demo section: a YouTube video if demoVideoId is set, else the self-hosted file, else a placeholder.
+  vars.demoYoutube = truthy(config.demoVideoId);
+  vars.demoLocal = !vars.demoYoutube && truthy(config.demoVideoFile);
+  vars.demoNone = !vars.demoYoutube && !vars.demoLocal;
   const html = render(readFileSync(join(root, 'src', page.src), 'utf8'), vars);
   writeFileSync(join(out, page.src), html);
 }

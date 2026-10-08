@@ -192,6 +192,8 @@ cite { font-style: italic; }
 .video-facade .soon .todo { outline-color: #fbbf24; padding: 4px 10px; }
 .video-facade iframe { display: block; width: 100%; aspect-ratio: 16 / 9; border: 0; border-radius: var(--radius); }
 
+.tour { width: 100%; aspect-ratio: 16 / 9; margin-top: 20px; border-radius: var(--radius); border: 1px solid var(--border); background: #0b0e16; box-shadow: var(--shadow); }
+
 /* Cards */
 .cards { display: grid; gap: 20px; grid-template-columns: 1fr; margin-top: 20px; }
 @media (min-width: 900px) { .cards { grid-template-columns: repeat(3, 1fr); } }
